@@ -37,7 +37,8 @@ export default function CrisisPanel() {
   const reportMutation = useMutation({
     mutationFn: async (payload: { type: string; latitude: number; longitude: number; severity: string }) => {
       console.log('[ReportBlockage] POSTing to /api/v1/crisis/report-crisis with:', payload);
-      const res = await axios.post('http://localhost:8000/api/v1/crisis/report-crisis', payload);
+      const apiBase = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000/api/v1';
+      const res = await axios.post(`${apiBase}/crisis/report-crisis`, payload);
       console.log('[ReportBlockage] Raw response:', res.data);
       return res.data;
     },
@@ -93,7 +94,8 @@ export default function CrisisPanel() {
 
   const handleClearBlockages = async () => {
     try {
-      await axios.post('http://localhost:8000/api/v1/crisis/clear-blockages');
+      const apiBase = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000/api/v1';
+      await axios.post(`${apiBase}/crisis/clear-blockages`);
       setPhase('idle');
       setResult(null);
       await idbDel('activeRoute');

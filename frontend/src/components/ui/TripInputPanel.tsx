@@ -22,7 +22,8 @@ export default function TripInputPanel() {
   const shareMutation = useMutation({
     mutationFn: async () => {
       if (!activeRoute) return null;
-      const res = await axios.post('http://localhost:8000/api/v1/trips/save', {
+      const apiBase = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000/api/v1';
+      const res = await axios.post(`${apiBase}/trips/save`, {
         trip_request: getTripRequest(),
         scored_route: activeRoute
       });
@@ -30,7 +31,7 @@ export default function TripInputPanel() {
     },
     onSuccess: (data) => {
       if (data?.trip_id) {
-        setShareLink(`http://localhost:5173/trip/${data.trip_id}`);
+        setShareLink(`${window.location.origin}/trip/${data.trip_id}`);
       }
     }
   });

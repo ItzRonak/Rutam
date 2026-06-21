@@ -48,7 +48,8 @@ export function useGISTools() {
       
       try {
         // Fetch safety POIs from the new endpoint
-        const res = await axios.get('http://localhost:8000/api/v1/search/pois?category=all');
+        const apiBase = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000/api/v1';
+        const res = await axios.get(`${apiBase}/search/pois?category=all`);
         const fc = res.data as GeoJSON.FeatureCollection<GeoJSON.Point>;
         
         if (fc.features.length > 0) {

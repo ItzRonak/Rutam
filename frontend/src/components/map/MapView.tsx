@@ -93,19 +93,28 @@ export default function MapView() {
   // Fetch admin overlays
   const { data: provinces } = useQuery({
     queryKey: ['provinces'],
-    queryFn: async () => (await axios.get('http://localhost:8000/api/v1/geodata/admin/provinces')).data,
+    queryFn: async () => {
+      const apiBase = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000/api/v1';
+      return (await axios.get(`${apiBase}/geodata/admin/provinces`)).data;
+    },
     enabled: activeOverlays.provinces
   });
 
   const { data: districts } = useQuery({
     queryKey: ['districts'],
-    queryFn: async () => (await axios.get('http://localhost:8000/api/v1/geodata/admin/districts')).data,
+    queryFn: async () => {
+      const apiBase = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000/api/v1';
+      return (await axios.get(`${apiBase}/geodata/admin/districts`)).data;
+    },
     enabled: activeOverlays.districts
   });
 
   const { data: localUnits } = useQuery({
     queryKey: ['localUnits'],
-    queryFn: async () => (await axios.get('http://localhost:8000/api/v1/geodata/admin/local')).data,
+    queryFn: async () => {
+      const apiBase = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000/api/v1';
+      return (await axios.get(`${apiBase}/geodata/admin/local`)).data;
+    },
     enabled: activeOverlays.local
   });
 

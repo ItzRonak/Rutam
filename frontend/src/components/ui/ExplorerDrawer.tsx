@@ -40,7 +40,8 @@ export default function ExplorerDrawer() {
       return;
     }
     try {
-      const url = `http://localhost:8000/api/v1/search/search?q=${encodeURIComponent(searchTerm)}`;
+      const apiBase = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000/api/v1';
+      const url = `${apiBase}/search/search?q=${encodeURIComponent(searchTerm)}`;
       console.log('[Search] Firing request to:', url);
       const res = await axios.get(url);
       console.log('[Search] Raw response:', res.data);
@@ -58,7 +59,8 @@ export default function ExplorerDrawer() {
     }
     const fetchPois = async () => {
       try {
-        const res = await axios.get(`http://localhost:8000/api/v1/search/pois?category=${activePoiCategory}`);
+        const apiBase = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000/api/v1';
+        const res = await axios.get(`${apiBase}/search/pois?category=${activePoiCategory}`);;
         setPois(res.data);
       } catch (err) {
         console.error("Failed to fetch POIs", err);

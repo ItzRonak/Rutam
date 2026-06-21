@@ -14,7 +14,8 @@ export default function SearchFilterPanel() {
     e.preventDefault();
     if (!searchTerm.trim()) return;
     try {
-      const res = await axios.get(`http://localhost:8000/api/v1/search?q=${encodeURIComponent(searchTerm)}`);
+      const apiBase = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000/api/v1';
+      const res = await axios.get(`${apiBase}/search?q=${encodeURIComponent(searchTerm)}`);
       setSearchResults(res.data.results);
     } catch (err) {
       console.error("Search failed", err);

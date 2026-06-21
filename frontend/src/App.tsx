@@ -16,7 +16,8 @@ function TripLoader() {
 
   useEffect(() => {
     if (trip_id) {
-      axios.get(`http://localhost:8000/api/v1/trips/${trip_id}`)
+      const apiBase = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000/api/v1';
+      axios.get(`${apiBase}/trips/${trip_id}`)
         .then(res => {
           setActiveRoute(res.data.scored_route);
         })

@@ -16,7 +16,8 @@ export const useChecklist = (route: ScoredRoute | null) => {
       }
       if (!route) throw new Error('No route provided');
       // Use the checklist endpoint to get the LLM advice
-      const response = await axios.post('http://localhost:8000/api/v1/checklist', route);
+      const apiBase = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000/api/v1';
+      const response = await axios.post(`${apiBase}/checklist`, route);
       const data = response.data;
       setChecklistData(data);
       return data;
