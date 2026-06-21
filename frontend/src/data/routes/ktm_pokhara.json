@@ -1,0 +1,114 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "segment_id": "seg_ktm_naubise",
+        "name": "Kathmandu to Naubise",
+        "road_class": "primary",
+        "surface": "paved",
+        "curvature_index": 0.6,
+        "elevation_grade": 12.5,
+        "barrier_present": false,
+        "in_landslide_zone": false,
+        "in_flood_zone": false,
+        "settlement_density": "high",
+        "is_freight_corridor": true,
+        "weather_rainfall_3h": 0.0,
+        "freshness": { "source": "2026-05-04T12:00:00Z" }
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [85.3240, 27.7172, 1400],
+          [85.2500, 27.7100, 1300],
+          [85.1500, 27.7150, 1050],
+          [85.0683, 27.7301, 850]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "segment_id": "seg_naubise_malekhu",
+        "name": "Naubise to Malekhu",
+        "road_class": "primary",
+        "surface": "paved",
+        "curvature_index": 0.3,
+        "elevation_grade": 3.2,
+        "barrier_present": true,
+        "in_landslide_zone": false,
+        "in_flood_zone": true,
+        "settlement_density": "medium",
+        "is_freight_corridor": true,
+        "weather_rainfall_3h": 5.0,
+        "freshness": { "source": "2026-05-04T12:00:00Z" }
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [85.0683, 27.7301, 850],
+          [85.0000, 27.7600, 750],
+          [84.9000, 27.7900, 600],
+          [84.8252, 27.8185, 450]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "segment_id": "seg_malekhu_mugling",
+        "name": "Malekhu to Mugling (Hazard Zone)",
+        "road_class": "primary",
+        "surface": "dirt",
+        "curvature_index": 0.8,
+        "elevation_grade": 6.5,
+        "barrier_present": false,
+        "in_landslide_zone": true,
+        "in_flood_zone": false,
+        "settlement_density": "low",
+        "is_freight_corridor": true,
+        "weather_rainfall_3h": 12.5,
+        "freshness": { "source": "2026-05-04T12:00:00Z" }
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [84.8252, 27.8185, 450],
+          [84.7500, 27.8200, 420],
+          [84.6500, 27.8350, 380],
+          [84.5583, 27.8540, 310]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "segment_id": "seg_mugling_pokhara",
+        "name": "Mugling to Pokhara",
+        "road_class": "primary",
+        "surface": "paved",
+        "curvature_index": 0.4,
+        "elevation_grade": 4.1,
+        "barrier_present": true,
+        "in_landslide_zone": false,
+        "in_flood_zone": false,
+        "settlement_density": "medium",
+        "is_freight_corridor": true,
+        "weather_rainfall_3h": 0.0,
+        "freshness": { "source": "2026-05-04T12:00:00Z" }
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [84.5583, 27.8540, 310],
+          [84.4500, 27.9000, 400],
+          [84.3000, 27.9500, 550],
+          [84.1000, 28.1000, 750],
+          [83.9856, 28.2096, 820]
+        ]
+      }
+    }
+  ]
+}
