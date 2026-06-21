@@ -43,8 +43,9 @@ def score_route(request: TripRequest, db: Session = Depends(get_session)):
         
     origin_str = f"{request.origin[0]},{request.origin[1]}"
     dest_str = f"{request.destination[0]},{request.destination[1]}"
-    # Using localhost since uvicorn is running on host
-    brouter_url = f"http://localhost:17777/brouter?lonlats={origin_str}|{dest_str}&profile=car-vario&alternativeidx=0&format=geojson"
+    # Using public brouter by default in production, or localhost for local dev
+    base_brouter_url = os.getenv("BROUTER_URL", "https://brouter.de")
+    brouter_url = f"{base_brouter_url}/brouter?lonlats={origin_str}|{dest_str}&profile=car-vario&alternativeidx=0&format=geojson"
     
     try:
         with httpx.Client() as client:
